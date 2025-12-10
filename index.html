@@ -1,480 +1,469 @@
-<!doctype html>
-<html lang="en">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chinazor Winner — Portfolio</title>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1913305997518672"
+    crossorigin="anonymous"></script>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    :root {
+        --accent: #f5b400;
+        /* yellow/orange accent */
+        --dark: #1f1f1f;
+        --muted: #e9e9e9;
+        --panel: #f8f8f8;
+    }
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    body {
+        background: linear-gradient(#cac1c1, #cfcfcf);
+        color: var(--dark);
+        font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1913305997518672"
-        crossorigin="anonymous"></script>
+    /* Sidebar */
+    #sidebar {
+        width: 280px;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #111111 0%, #222222 100%);
+        color: #fff;
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 28px 18px;
+        z-index: 1000;
+    }
 
-    <style>
-        :root {
-            --accent: #f5b400;
-            /* yellow/orange accent */
-            --dark: #1f1f1f;
-            --muted: #e9e9e9;
-            --panel: #f8f8f8;
-        }
+    #sidebar .profile-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 4px solid var(--accent);
+        background: #ddd;
+    }
 
-        body {
-            background: linear-gradient(#cac1c1, #cfcfcf);
-            color: var(--dark);
-            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
+    #sidebar h2 {
+        margin-top: 14px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
 
-        /* Sidebar */
+    #sidebar p.profession {
+        font-size: 0.9rem;
+        color: #f1f1f1;
+        margin-bottom: 14px;
+    }
+
+    #sidebar .nav-link {
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        transition: .15s;
+    }
+
+    #sidebar .nav-link:hover,
+    #sidebar .nav-link.active {
+        background: rgba(255, 255, 255, 0.06);
+        transform: translateX(6px);
+    }
+
+    #sidebar .accent {
+        background: var(--accent);
+        color: #111;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    /* content area */
+    #content {
+        margin-left: 300px;
+        padding: 40px;
+    }
+
+    .hero {
+        background: white;
+        border-radius: 10px;
+        padding: 36px;
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 24px;
+        align-items: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+        margin-bottom: 6px;
+        letter-spacing: -1px;
+        font-weight: 800;
+    }
+
+    .hero .role {
+        color: var(--accent);
+        font-weight: 700;
+    }
+
+    .stats-card {
+        background: #111;
+        color: #fff;
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .section-title {
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+    }
+
+    .resume-item {
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+        margin-bottom: 14px;
+    }
+
+    .portfolio-grid img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .testimonial {
+        background: #fff;
+        padding: 18px;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
+        margin-bottom: 12px;
+    }
+
+    footer {
+        margin-top: 28px;
+        padding: 18px 0;
+        color: #444;
+    }
+
+    /* ========================================
+           RESPONSIVE DESIGN FOR ALL SCREEN SIZES
+           ======================================== */
+
+    /* Mobile First - Small devices (phones, 320px and up) */
+    @media (max-width: 575px) {
         #sidebar {
-            width: 280px;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #111111 0%, #222222 100%);
-            color: #fff;
-            position: fixed;
-            left: 0;
-            top: 0;
-            padding: 28px 18px;
-            z-index: 1000;
+            position: relative;
+            width: 100%;
+            min-height: auto;
+            padding: 20px 15px;
+            text-align: center;
         }
 
         #sidebar .profile-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 4px solid var(--accent);
-            background: #ddd;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            border-width: 3px;
         }
 
         #sidebar h2 {
-            margin-top: 14px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.5rem;
+            margin-top: 12px;
         }
 
         #sidebar p.profession {
-            font-size: 0.9rem;
-            color: #f1f1f1;
-            margin-bottom: 14px;
+            font-size: 0.85rem;
+        }
+
+        #sidebar .nav {
+            width: 100%;
         }
 
         #sidebar .nav-link {
-            color: #fff;
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            transition: .15s;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 0.95rem;
         }
 
         #sidebar .nav-link:hover,
         #sidebar .nav-link.active {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateX(6px);
+            transform: translateX(0);
         }
 
         #sidebar .accent {
-            background: var(--accent);
-            color: #111;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 10px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
         }
 
-        /* content area */
         #content {
-            margin-left: 300px;
-            padding: 40px;
+            margin-left: 0;
+            padding: 15px;
         }
 
         .hero {
-            background: white;
-            border-radius: 10px;
-            padding: 36px;
-            display: grid;
-            grid-template-columns: 1fr 360px;
-            gap: 24px;
-            align-items: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            grid-template-columns: 1fr;
+            padding: 24px 20px;
+            gap: 20px;
         }
 
         .hero h1 {
-            font-size: 2.4rem;
-            margin-bottom: 6px;
-            letter-spacing: -1px;
-            font-weight: 800;
+            font-size: 1.75rem;
+            letter-spacing: -0.5px;
         }
 
         .hero .role {
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .stats-card {
-            background: #111;
-            color: #fff;
-            padding: 18px;
-            border-radius: 10px;
-        }
-
-        .section-title {
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
-
-        .resume-item {
-            background: #fff;
-            border-radius: 8px;
-            padding: 16px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
-            margin-bottom: 14px;
-        }
-
-        .portfolio-grid img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 8px;
             display: block;
         }
 
+        .hero p {
+            font-size: 0.95rem;
+        }
+
+        .hero .d-flex.gap-3 {
+            flex-direction: column;
+            gap: 10px !important;
+        }
+
+        .hero .btn {
+            width: 100%;
+            font-size: 0.95rem;
+        }
+
+        .stats-card {
+            padding: 15px;
+        }
+
+        .stats-card .h2 {
+            font-size: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+        }
+
+        .resume-item {
+            padding: 15px;
+        }
+
+        .portfolio-grid img {
+            height: 200px;
+        }
+
         .testimonial {
-            background: #fff;
-            padding: 18px;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04);
-            margin-bottom: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        #video video {
+            width: 100% !important;
+        }
+
+        .modal-dialog {
+            margin: 10px;
+        }
+
+        .modal-body .row {
+            flex-direction: column;
         }
 
         footer {
-            margin-top: 28px;
-            padding: 18px 0;
-            color: #444;
+            font-size: 0.85rem;
+            padding: 15px 0;
+        }
+    }
+
+    /* Small to Medium devices (landscape phones, tablets, 576px and up) */
+    @media (min-width: 576px) and (max-width: 767px) {
+        #sidebar {
+            position: relative;
+            width: 100%;
+            min-height: auto;
+            padding: 25px 20px;
+            text-align: center;
         }
 
-        /* ========================================
-           RESPONSIVE DESIGN FOR ALL SCREEN SIZES
-           ======================================== */
-
-        /* Mobile First - Small devices (phones, 320px and up) */
-        @media (max-width: 575px) {
-            #sidebar {
-                position: relative;
-                width: 100%;
-                min-height: auto;
-                padding: 20px 15px;
-                text-align: center;
-            }
-
-            #sidebar .profile-img {
-                width: 120px;
-                height: 120px;
-                margin: 0 auto;
-                border-width: 3px;
-            }
-
-            #sidebar h2 {
-                font-size: 1.5rem;
-                margin-top: 12px;
-            }
-
-            #sidebar p.profession {
-                font-size: 0.85rem;
-            }
-
-            #sidebar .nav {
-                width: 100%;
-            }
-
-            #sidebar .nav-link {
-                text-align: left;
-                padding: 12px 15px;
-                font-size: 0.95rem;
-            }
-
-            #sidebar .nav-link:hover,
-            #sidebar .nav-link.active {
-                transform: translateX(0);
-            }
-
-            #sidebar .accent {
-                display: block;
-                width: 100%;
-                text-align: center;
-                margin-top: 15px;
-            }
-
-            #content {
-                margin-left: 0;
-                padding: 15px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 24px 20px;
-                gap: 20px;
-            }
-
-            .hero h1 {
-                font-size: 1.75rem;
-                letter-spacing: -0.5px;
-            }
-
-            .hero .role {
-                display: block;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
-            .hero .d-flex.gap-3 {
-                flex-direction: column;
-                gap: 10px !important;
-            }
-
-            .hero .btn {
-                width: 100%;
-                font-size: 0.95rem;
-            }
-
-            .stats-card {
-                padding: 15px;
-            }
-
-            .stats-card .h2 {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .resume-item {
-                padding: 15px;
-            }
-
-            .portfolio-grid img {
-                height: 200px;
-            }
-
-            .testimonial {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            #video video {
-                width: 100% !important;
-            }
-
-            .modal-dialog {
-                margin: 10px;
-            }
-
-            .modal-body .row {
-                flex-direction: column;
-            }
-
-            footer {
-                font-size: 0.85rem;
-                padding: 15px 0;
-            }
+        #sidebar .profile-img {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
         }
 
-        /* Small to Medium devices (landscape phones, tablets, 576px and up) */
-        @media (min-width: 576px) and (max-width: 767px) {
-            #sidebar {
-                position: relative;
-                width: 100%;
-                min-height: auto;
-                padding: 25px 20px;
-                text-align: center;
-            }
-
-            #sidebar .profile-img {
-                width: 150px;
-                height: 150px;
-                margin: 0 auto;
-            }
-
-            #sidebar h2 {
-                font-size: 1.75rem;
-            }
-
-            #sidebar .nav-link {
-                padding: 12px 15px;
-            }
-
-            #content {
-                margin-left: 0;
-                padding: 20px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 28px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .portfolio-grid img {
-                height: 180px;
-            }
+        #sidebar h2 {
+            font-size: 1.75rem;
         }
 
-        /* Medium devices (tablets, 768px and up) */
-        @media (min-width: 768px) and (max-width: 991px) {
-            #sidebar {
-                position: relative;
-                width: 100%;
-                min-height: auto;
-                display: flex;
-                gap: 20px;
-                align-items: center;
-                padding: 20px;
-                flex-wrap: wrap;
-            }
-
-            #sidebar .profile-img {
-                width: 180px;
-                height: 180px;
-                flex-shrink: 0;
-            }
-
-            #sidebar h2 {
-                font-size: 1.85rem;
-                margin-top: 0;
-            }
-
-            #sidebar .nav {
-                flex: 1;
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-
-            #sidebar .nav-link {
-                padding: 10px 12px;
-            }
-
-            #content {
-                margin-left: 0;
-                padding: 25px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding: 32px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .portfolio-grid img {
-                height: 185px;
-            }
+        #sidebar .nav-link {
+            padding: 12px 15px;
         }
 
-        /* Large devices (desktops, 992px and up) */
-        @media (min-width: 992px) and (max-width: 1199px) {
-            #sidebar {
-                width: 260px;
-                padding: 24px 16px;
-            }
-
-            #sidebar .profile-img {
-                height: 200px;
-            }
-
-            #content {
-                margin-left: 280px;
-                padding: 35px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr 320px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+        #content {
+            margin-left: 0;
+            padding: 20px;
         }
 
-        /* Extra large devices (large desktops, 1200px and up) */
-        @media (min-width: 1200px) {
-            #sidebar {
-                width: 280px;
-            }
-
-            #content {
-                margin-left: 300px;
-                padding: 40px;
-                max-width: 1400px;
-            }
-
-            .hero {
-                grid-template-columns: 1fr 360px;
-            }
+        .hero {
+            grid-template-columns: 1fr;
+            padding: 28px;
         }
 
-        /* Landscape orientation adjustments for mobile */
-        @media (max-width: 991px) and (orientation: landscape) {
-            #sidebar {
-                padding: 15px;
-            }
-
-            #sidebar .profile-img {
-                width: 100px;
-                height: 100px;
-            }
-
-            #sidebar h2 {
-                font-size: 1.3rem;
-            }
-
-            #sidebar .nav {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-                width: 100%;
-            }
-
-            #sidebar .nav-link {
-                padding: 8px 10px;
-                font-size: 0.85rem;
-            }
+        .hero h1 {
+            font-size: 2rem;
         }
 
-        /* Print styles */
-        @media print {
-            #sidebar {
-                position: relative;
-                width: 100%;
-                page-break-after: always;
-            }
-
-            #content {
-                margin-left: 0;
-            }
-
-            .modal,
-            .btn {
-                display: none !important;
-            }
+        .portfolio-grid img {
+            height: 180px;
         }
-    </style>
+    }
+
+    /* Medium devices (tablets, 768px and up) */
+    @media (min-width: 768px) and (max-width: 991px) {
+        #sidebar {
+            position: relative;
+            width: 100%;
+            min-height: auto;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        #sidebar .profile-img {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+        }
+
+        #sidebar h2 {
+            font-size: 1.85rem;
+            margin-top: 0;
+        }
+
+        #sidebar .nav {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        #sidebar .nav-link {
+            padding: 10px 12px;
+        }
+
+        #content {
+            margin-left: 0;
+            padding: 25px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            padding: 32px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+
+        .portfolio-grid img {
+            height: 185px;
+        }
+    }
+
+    /* Large devices (desktops, 992px and up) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+        #sidebar {
+            width: 260px;
+            padding: 24px 16px;
+        }
+
+        #sidebar .profile-img {
+            height: 200px;
+        }
+
+        #content {
+            margin-left: 280px;
+            padding: 35px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr 320px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+    }
+
+    /* Extra large devices (large desktops, 1200px and up) */
+    @media (min-width: 1200px) {
+        #sidebar {
+            width: 280px;
+        }
+
+        #content {
+            margin-left: 300px;
+            padding: 40px;
+            max-width: 1400px;
+        }
+
+        .hero {
+            grid-template-columns: 1fr 360px;
+        }
+    }
+
+    /* Landscape orientation adjustments for mobile */
+    @media (max-width: 991px) and (orientation: landscape) {
+        #sidebar {
+            padding: 15px;
+        }
+
+        #sidebar .profile-img {
+            width: 100px;
+            height: 100px;
+        }
+
+        #sidebar h2 {
+            font-size: 1.3rem;
+        }
+
+        #sidebar .nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+        }
+
+        #sidebar .nav-link {
+            padding: 8px 10px;
+            font-size: 0.85rem;
+        }
+    }
+
+    /* Print styles */
+    @media print {
+        #sidebar {
+            position: relative;
+            width: 100%;
+            page-break-after: always;
+        }
+
+        #content {
+            margin-left: 0;
+        }
+
+        .modal,
+        .btn {
+            display: none !important;
+        }
+    }
+</style>
 </head>
 
 <body>
